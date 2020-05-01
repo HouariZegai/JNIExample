@@ -26,7 +26,19 @@ Steps of using Java Native Interface (Call C/C++ methods from Java)
 2. Create new project of type **Dynamic Link Library** on the CodeBlocks IDE
 3. Import the Hello.h file
 4. Create new file named **Hello.cpp** and make the implementation of the Hello.h method (like [this](native/Hello.cpp))
-5. Build the project
+5. Add the **jni.h** support to C++ compiler:
+    1. Right click on the project and click to **Build Options**
+    2. Go to **Other compiler options**
+    3. Add this two lines:
+    
+           -I"<JDK path>\include"
+           -I"<JDK path>\include\win32"    
+        In my case:
+    
+           -I"C:\Program Files\Java\jdk1.8.0_231\include"
+           -I"C:\Program Files\Java\jdk1.8.0_231\include\win32"
+
+6. Build the project
 
 ### Step III: Import the lib in Java & Execute the code
 1. From C++ project go to the **bin\Debug** folder and copy the generated library (something like *.dll) and paste it in the java project for example under **src/cpplib** folder
